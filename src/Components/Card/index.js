@@ -15,7 +15,7 @@ const Card = ({item}) => {
             </div>
             <div className="Card__content">
                 {images.map((list,i) => 
-                    <div className="Card_content__item">
+                    <div className="Card_content__item" key={i}>
                         <img className="Card__content__item__img" key={i} src={list.src} alt="test"/>
                         <div className="Card__content__item__desc">{list.desc}</div>
                     </div>

@@ -34,9 +34,12 @@ const categories = [
 ]
 
 const Main = () => {
+  const [contextRef, setContextRef] = React.useState(null);
+  const handleContextRef = ref => setContextRef(ref);
+
   return (
-    <div className="Home">
-      <GNB />
+    <div className="Home" ref={handleContextRef}>
+      <GNB context={contextRef}/>
       <Header tableList={categories}/>
       {categories.map((card,i) => <Card key={i} item={card} />)}
     </div>

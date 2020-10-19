@@ -4,6 +4,8 @@
 	background: #42f566;
 
 	&__Inner {
+		z-index: 1000;
+
 		justify-content: space-evenly !important;
 
 		&::after {
