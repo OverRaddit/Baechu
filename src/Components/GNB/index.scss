@@ -1,0 +1,19 @@
+.GNB {
+	padding: 0;
+	margin: 0;
+	background: #42f566;
+
+	&__Inner {
+		justify-content: space-evenly !important;
+
+		&::after {
+			display: none !important;
+		}
+
+		.item {
+			font-size: 1.2rem;
+			color: white !important;
+			cursor: pointer !important;
+		}
+	}
+}
