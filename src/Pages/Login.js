@@ -35,6 +35,7 @@ const Login =() =>{
             setError(error.message);
         }
     }
+    const toggleAccount = () => setNewAccount((prev) => !prev);
     const onSocialClick = async (event) => {
         const {
             target: {name},
@@ -51,7 +52,9 @@ const Login =() =>{
     return (
         <div className="login">
             <section className="login-form">
-            <h1>{(newAccount) ? "JOIN" : "LOGIN"}</h1>
+            <span onClick={toggleAccount}>
+                <h1>{(newAccount) ? "JOIN" : "LOGIN"}</h1>
+            </span>
             <h2>{error}</h2> <br></br>
             <form onSubmit = {onSubmit}>
                 <div className="int-area">
@@ -71,8 +74,8 @@ const Login =() =>{
             <div className="caption">
                  <a href=""> Forgot Password?</a>
             </div>
-            <button type="submit" onClick={onSocialClick} name="google">LOGIN by Google</button> <br/><br/>
-            <button type="submit" onClick={onSocialClick} name="github">LOGIN by Github </button>
+            <button type="submit" onClick={onSocialClick} name="google">by Google</button> <br/><br/>
+            <button type="submit" onClick={onSocialClick} name="github">by Github </button>
             </section>
         </div>
     );
