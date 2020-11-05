@@ -20,7 +20,7 @@ const Map = ({ searchPlace,userObj }) => {
                 lat,
                 lng
             });
-            
+
         } else {
             // 위치 정보를 처음 추가하는 로직
             const user = {
@@ -41,6 +41,7 @@ const Map = ({ searchPlace,userObj }) => {
         const container = document.getElementById("mymap");
         
         let userLocation;
+        
         if (userObj.lat === "" || userObj.lng === ""){
             userLocation = new kakao.maps.LatLng(33.450701, 126.570667);
             console.log("기본맵을출력");

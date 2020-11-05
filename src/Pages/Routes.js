@@ -11,7 +11,7 @@ import {
 
 import Home from './Home';
 import Login from './Login';
-import MapSearch from '../Components/MapSearch'
+import MapSearch from '../Components/MapSearch';
 
 const Routes = ({isLoggedIn, userObj}) => {
   return (
@@ -25,8 +25,8 @@ const Routes = ({isLoggedIn, userObj}) => {
         <Route exact path="/My_page">
           <MapSearch userObj={userObj}/>
         </Route> 
-        <Route exact path="/Board" component={MapSearch} />
-        <Route exact path="/Q&A" component={Login} />
+        <Route exact path="/Board"/>
+        <Route exact path="/Q&A"/>
         </>
       ) : (
         <Route exact path="/">

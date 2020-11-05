@@ -78,7 +78,6 @@ const Login =() =>{
             <button type="submit" onClick={onSocialClick} name="google">by Google</button> <br/><br/>
             <button type="submit" onClick={onSocialClick} name="github">by Github </button>
             </section>
-            <MapSearch />
         </div>
     );
 };
