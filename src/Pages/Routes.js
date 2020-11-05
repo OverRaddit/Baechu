@@ -11,8 +11,10 @@ import {
 
 import Home from './Home';
 import Login from './Login';
+import MapSearch from '../Components/MapSearch'
 
-const Routes = ({isLoggedIn}) => (
+const Routes = ({isLoggedIn, userObj}) => {
+  return (
   <Router basename={process.env.PUBLIC_URL}>
     <Switch>
       {isLoggedIn ? (
@@ -20,8 +22,10 @@ const Routes = ({isLoggedIn}) => (
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route exact path="/My_page" component={Login} />
-        <Route exact path="/Board" component={Login} />
+        <Route exact path="/My_page">
+          <MapSearch userObj={userObj}/>
+        </Route> 
+        <Route exact path="/Board" component={MapSearch} />
         <Route exact path="/Q&A" component={Login} />
         </>
       ) : (
@@ -33,6 +37,7 @@ const Routes = ({isLoggedIn}) => (
       
     </Switch>
   </Router>
-);
+  );
+};
 
 export default Routes;

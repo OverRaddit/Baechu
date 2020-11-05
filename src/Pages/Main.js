@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import {authService} from "../fbase";
+import {authService, dbService} from "../fbase";
 import Routes from "./Routes"
 
 function Main() {
-  console.log(authService.currentUser);
   const[init, setInit] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() =>{
-    authService.onAuthStateChanged((user) =>{
+  const [userObj, setUserObj] = useState(null);
+
+  useEffect( () =>{
+    authService.onAuthStateChanged(async(user) =>{
       if(user){
-        setIsLoggedIn(true);
+        // collection에 있는 user목록에서 uid가 일치하는 것을 찾아 가져온다.
+        await dbService
+        .collection("user")
+        .where("userId","==",user.uid)
+        .onSnapshot( (snapshot) => {
+          const userInfo = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setUserObj(userInfo[0]);
+          console.log(userInfo[0]);
+        });
       }else {
-        setIsLoggedIn(false);
+        setUserObj(null);
       }
       setInit(true);
     });
   }, []);
+  
   return (
     <>
-      {init ? <Routes isLoggedIn={isLoggedIn}/> : "Initializing..."}
+      {init ? <Routes isLoggedIn={Boolean(userObj)} userObj={userObj}/> : "Initializing..."}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </>
     );

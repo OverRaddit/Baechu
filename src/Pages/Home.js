@@ -4,8 +4,6 @@ import GNB from "../Components/GNB";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
 import { authService } from 'fbase';
-
-
 // 백엔드 존재시 통신해서 가져올 데이터 (dummy data)
 const categories = [
   { 
@@ -35,8 +33,8 @@ const categories = [
 ]
 
 const Home = () => {
-  const [contextRef, setContextRef] = React.useState(null);
-  const handleContextRef = ref => setContextRef(ref);
+ // const [contextRef, setContextRef] = React.useState(null);
+  //const handleContextRef = ref => setContextRef(ref);
 
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
@@ -52,8 +50,8 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="Home" ref={handleContextRef}>
-      <GNB context={contextRef} isLoggedIn={isLoggedIn}/>
+    <div className="Home">
+      <GNB isLoggedIn={isLoggedIn}/>
       <Header tableList={categories}/>
       {categories.map((card,i) => <Card key={i} item={card} />)}
     </div>

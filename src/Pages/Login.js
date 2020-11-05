@@ -1,8 +1,9 @@
-import { authService } from "fbase";
+import { authService, dbService } from "fbase";
 import React, { useState } from "react";
 import { firebaseInstance } from "../fbase";
 
 import '../Style/login.css';
+import MapSearch from '../Components/MapSearch'
 
 const Login =() =>{
     const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ const Login =() =>{
                 //log in Logic
                 data = await authService.signInWithEmailAndPassword(email,password);
             }
-            console.log(data);
+
         } catch(error){
             setError(error.message);
         }
@@ -42,9 +43,9 @@ const Login =() =>{
         } = event;
         let provider;
         if(name === "google"){
-            provider = await new firebaseInstance.auth.GoogleAuthProvider();
+            provider = new firebaseInstance.auth.GoogleAuthProvider();
         }else if(name === "github"){
-            provider = await new firebaseInstance.auth.GithubAuthProvider();
+            provider = new firebaseInstance.auth.GithubAuthProvider();
         }
         const data = await authService.signInWithPopup(provider);
     }
@@ -77,6 +78,7 @@ const Login =() =>{
             <button type="submit" onClick={onSocialClick} name="google">by Google</button> <br/><br/>
             <button type="submit" onClick={onSocialClick} name="github">by Github </button>
             </section>
+            <MapSearch />
         </div>
     );
 };
