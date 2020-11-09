@@ -5,7 +5,6 @@ import Map from './Mapexample'
 const MapSearch = ({ userObj }) => {
     const [place, setPlace] = useState("");
     const [input, setInput] = useState("");
-    const [userInfo, setUserInfo] = useState("");
     const onChange = (event) => {
        const {
            target: {value},

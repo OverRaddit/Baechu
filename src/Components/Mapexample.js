@@ -14,24 +14,11 @@ const Map = ({ searchPlace,userObj }) => {
             return;
         }
         event.preventDefault();
-        if(edit){
-            // 위치를 수정하는 로직
-            await dbService.doc(`user/${userObj.id}`).update({
-                lat,
-                lng
-            });
-
-        } else {
-            // 위치 정보를 처음 추가하는 로직
-            const user = {
-                userId: userObj.uid,
-                lat,
-                lng,
-                createdAt: Date.now(),
-            }
-            await dbService.collection("user").add(user);
-        }
-
+        
+        await dbService.doc(`user/${userObj.id}`).update({
+            lat,
+            lng
+        });
         setLat("");
         setLng("");
         setLocation("");
@@ -39,10 +26,9 @@ const Map = ({ searchPlace,userObj }) => {
 
     useEffect(() => {
         const container = document.getElementById("mymap");
-        
         let userLocation;
         
-        if (userObj.lat === "" || userObj.lng === ""){
+        if (userObj.lat === null || userObj.lng === null){
             userLocation = new kakao.maps.LatLng(33.450701, 126.570667);
             console.log("기본맵을출력");
         } else {
@@ -51,6 +37,8 @@ const Map = ({ searchPlace,userObj }) => {
                 userObj.lng
                 );
             console.log("사용자의 위치를 중심으로");
+            console.log(userObj.lat);
+            console.log(userObj.lng);
             // 사용자는 이미 위치를 저장했으니 수정모드로 변환한다!
             setEdit(true);
         }
@@ -113,25 +101,15 @@ const Map = ({ searchPlace,userObj }) => {
             kakao.maps.event.addListener(marker, 'mouseout', function() {
                 infowindow.close();
             });
-            
-
         }
-        console.log(userObj);
     }, [searchPlace])
-    
-    
     
   return (
       <>
         <h1>위치정보 입력 Form</h1>
          <form onSubmit={onSubmit}>
              <input type="text" value={location} readOnly required/>
-             {edit ? (
-                <input type="submit" value="현재 위치로 수정"/>
-             ) : (
-                <input type="submit" value="해당위치 저장(현재저장x)"/>
-             )
-            }  
+             <input type="submit" value="현재 위치로 저장"/>
          </form>
         <div 
          id="mymap"

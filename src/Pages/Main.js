@@ -13,13 +13,25 @@ function Main() {
         await dbService
         .collection("user")
         .where("userId","==",user.uid)
-        .onSnapshot( (snapshot) => {
+        .onSnapshot( async (snapshot) => {
           const userInfo = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
           }));
-          setUserObj(userInfo[0]);
-          console.log(userInfo[0]);
+          if(userInfo[0] == null){
+            // 만약에 user document가 없다면?
+            const newUser = {
+              userId: user.uid,
+              lat: null,
+              lng: null,
+              createdAt: Date.now(),
+            }
+            await dbService.collection("user").add(newUser);
+            setUserObj(newUser);
+            console.log(newUser);
+          } else {
+            setUserObj(userInfo[0]);
+          }
         });
       }else {
         setUserObj(null);
