@@ -1,16 +1,15 @@
-import { authService, dbService } from "fbase";
+import { authService } from "fbase";
 import React, { useState } from "react";
 import { firebaseInstance } from "../fbase";
 
 import '../Style/login.css';
-import MapSearch from '../Components/MapSearch'
 
 const Login =() =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [newAccount, setNewAccount] = useState(false);
     const [error, setError] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+    //const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
 
     const onChange = (event) => {
         const {target: {name, value}} = event;
@@ -23,13 +22,12 @@ const Login =() =>{
     const onSubmit = async(event) => {
         event.preventDefault();
         try{
-            let data;
             if(newAccount){
                 //join Logic
-                data = await authService.createUserWithEmailAndPassword(email,password);
+                await authService.createUserWithEmailAndPassword(email,password);
             } else{
                 //log in Logic
-                data = await authService.signInWithEmailAndPassword(email,password);
+                await authService.signInWithEmailAndPassword(email,password);
             }
 
         } catch(error){
@@ -47,7 +45,7 @@ const Login =() =>{
         }else if(name === "github"){
             provider = new firebaseInstance.auth.GithubAuthProvider();
         }
-        const data = await authService.signInWithPopup(provider);
+        await authService.signInWithPopup(provider);
     }
 
     return (

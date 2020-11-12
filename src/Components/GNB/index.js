@@ -15,11 +15,15 @@ const GNB = ({isLoggedIn}) => {
            <Sticky>
                 <List className="GNB__Inner" tabular>
                 {isLoggedIn?
-                        <Link className="item" to="/My_page">MY PAGE</Link>:
+                        (<>
+                            <Link className="item" to="/My_page">MY PAGE</Link>
+                            <Link className="item" to="/createClub">createClub</Link>
+                        </>):
                         <Link className="item" to="/Login">JoIn&Login</Link>
                     }
                     <Link className="item" to="/Board">BOARD</Link>
                     <Link className="item" to="/Q&A">Q&A</Link>
+
                     {isLoggedIn && <button className="item" onClick={onLogOutClick}>Log Out</button> }    
                 </List>
             </Sticky>

@@ -7,7 +7,6 @@ const Map = ({ searchPlace,userObj }) => {
     const [location,setLocation] = useState("");
     const [lat,setLat] = useState("");
     const [lng,setLng] = useState("");
-    const [edit,setEdit] = useState(false);
 
     const onSubmit = async(event) => {
         if((lat === "") || (lng === "")){
@@ -39,8 +38,6 @@ const Map = ({ searchPlace,userObj }) => {
             console.log("사용자의 위치를 중심으로");
             console.log(userObj.lat);
             console.log(userObj.lng);
-            // 사용자는 이미 위치를 저장했으니 수정모드로 변환한다!
-            setEdit(true);
         }
         
         const options = {

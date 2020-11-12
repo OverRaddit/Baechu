@@ -12,6 +12,7 @@ import {
 import Home from './Home';
 import Login from './Login';
 import MapSearch from '../Components/MapSearch';
+import CreateClub from '../Components/CreateClub';
 
 const Routes = ({isLoggedIn, userObj}) => {
   return (
@@ -24,6 +25,9 @@ const Routes = ({isLoggedIn, userObj}) => {
         </Route>
         <Route exact path="/My_page">
           <MapSearch userObj={userObj}/>
+        </Route> 
+        <Route exact path="/createClub">
+          <CreateClub userObj={userObj}/>
         </Route> 
         <Route exact path="/Board"/>
         <Route exact path="/Q&A"/>
