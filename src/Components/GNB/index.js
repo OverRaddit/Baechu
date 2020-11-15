@@ -13,7 +13,6 @@ const GNB = ({isLoggedIn}) => {
     const onLogOutClick = () => authService.signOut();
     return(
         <div className="GNB">
-            <Sidebar />
            <Sticky>
                 <List className="GNB__Inner" tabular>
                 {isLoggedIn?
@@ -29,6 +28,7 @@ const GNB = ({isLoggedIn}) => {
                     {isLoggedIn && <button className="item" onClick={onLogOutClick}>Log Out</button> }    
                 </List>
             </Sticky>
+            
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 
 import "./index.scss";
@@ -10,7 +11,7 @@ const Card2 = ({item}) => {
     return (
         <div className="Card">
             <div className="Card__header">
-                <span>{name}</span>
+            <Link to={`/viewClub/${name}`}><span>{name}</span></Link>
             </div>
             <div className="Card__content">
                 <div className="Card_content__item">

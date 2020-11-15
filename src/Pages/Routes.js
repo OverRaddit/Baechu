@@ -13,6 +13,7 @@ import Home from './Home';
 import Login from './Login';
 import MapSearch from '../Components/MapSearch';
 import CreateClub from '../Components/CreateClub';
+import ViewClub from 'Components/ViewClub';
 
 const Routes = ({isLoggedIn, userObj}) => {
   return (
@@ -29,6 +30,7 @@ const Routes = ({isLoggedIn, userObj}) => {
         <Route exact path="/createClub">
           <CreateClub userObj={userObj}/>
         </Route> 
+        <Route exact path="/viewClub/:clubName" component={ViewClub} />
         <Route exact path="/Board"/>
         <Route exact path="/Q&A"/>
         </>
