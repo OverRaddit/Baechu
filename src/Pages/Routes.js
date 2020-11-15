@@ -14,6 +14,9 @@ import Login from './Login';
 import MapSearch from '../Components/MapSearch';
 import CreateClub from '../Components/CreateClub';
 import ViewClub from 'Components/ViewClub';
+import MyPageInfo from 'Components/MyPageInfo';
+import Mypage from './MyPage';
+import UserInfo from './UserInfo';
 
 const Routes = ({isLoggedIn, userObj}) => {
   return (
@@ -24,9 +27,9 @@ const Routes = ({isLoggedIn, userObj}) => {
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route exact path="/My_page">
-          <MapSearch userObj={userObj}/>
-        </Route> 
+        <Route exact path="/Mypage" component={Mypage} />
+        <Route exact path="/Mypage/info" component={UserInfo} />
+        
         <Route exact path="/createClub">
           <CreateClub userObj={userObj}/>
         </Route> 

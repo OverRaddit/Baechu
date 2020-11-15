@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {authService, dbService} from "../fbase";
 import Routes from "./Routes"
+import Sticky from 'semantic-ui-react/dist/commonjs/modules/Sticky';
 
-function Main() {
+const Main=() => {
   const[init, setInit] = useState(false)
   const [userObj, setUserObj] = useState(null);
 
@@ -55,8 +56,10 @@ function Main() {
   
   return (
     <>
-      {init ? <Routes isLoggedIn={Boolean(userObj)} userObj={userObj}/> : "Initializing..."}
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
+      {init ? 
+        <Routes isLoggedIn={Boolean(userObj)} userObj={userObj}/> :
+        "Initializing..."
+      }
     </>
     );
   

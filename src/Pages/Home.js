@@ -6,33 +6,29 @@ import Card from "../Components/Card";
 import { authService, dbService } from 'fbase';
 import Card2 from 'Components/Card/index2';
 import Sidebar from 'Components/Sidebar/Sidebar';
+import { Sticky } from 'semantic-ui-react';
 
 
 
 // 백엔드 존재시 통신해서 가져올 데이터 (dummy data)
 const categories = [
   { 
-    name:"우리동네 취미",
-    images:[
-      {src:"./test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
-      {src:"./test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
-      {src:"./test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
-    ]
+    
   }, 
   { 
     name:"홈취미 & DIY 키트", 
     images:[
-      {src:"./test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
-      {src:"./test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
-      {src:"./test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
+      {src:"images/test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
+      {src:"images/test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
+      {src:"images/test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
     ]
   },
   { 
     name:"BEST", 
     images:[
-      {src:"./test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
-      {src:"./test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
-      {src:"./test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
+      {src:"images/test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
+      {src:"images/test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
+      {src:"images/test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
     ]
     
   },
@@ -70,12 +66,26 @@ const Home = () => {
         }));
         setClubs(clubArray);
         console.log(clubArray[0]);
+
+        // 자 한번 해봅시다.
+        categories[0] = 
+          { 
+            name:"우리동네 취미",
+            images:[
+                {src:clubArray[0].attachmentUrl, desc: clubArray[0].desc},
+                {src:clubArray[1].attachmentUrl, desc: clubArray[1].desc},
+                {src:clubArray[2].attachmentUrl, desc: clubArray[2].desc},
+            ]
+          }
+        console.log(categories);
       });
   }, [])
   return (
     <>
     <div className="Home">
-      <GNB isLoggedIn={isLoggedIn} />
+      <Sticky>
+        <GNB isLoggedIn={isLoggedIn} />
+      </Sticky>
       <Header tableList={categories}/>
       {categories.map((card,i) => <Card key={i} item={card} />)}
       {clubs.map((card,i) => <Card2 key={i} item={card} />)}

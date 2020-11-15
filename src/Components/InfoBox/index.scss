@@ -1,0 +1,64 @@
+.InfoBox {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #e7e5e5;
+  
+    &__title {
+      width: 130px;
+      padding: .5rem 0;
+      padding-left: 1.5rem;
+      background: #fbfafa;
+      font-size: .8rem;
+  
+      &__address {
+        width: 130px;
+        padding: 2.2rem 0;
+        padding-left: 1.5rem;
+        background: #fbfafa;
+        font-size: .8rem;
+      }
+    }
+  
+    &__input {
+      margin-left: 1rem;
+      padding: .5rem 0;
+  
+      input {
+        font-size: 1rem;
+        border: 1px solid #e7e5e5;
+      }
+  
+      label {
+        input {margin-right: .3rem;}
+      }
+      label:last-child {
+        margin-left: .5rem;
+      }
+  
+      button {
+        font-size: .8rem;
+      }
+  
+      span {
+        padding-left: .5rem;
+        font-size: .8rem;
+      }
+  
+      &__address {
+        input {
+          width: 50px;
+        }
+      }
+  
+      &__call {
+        margin-left: 1rem;
+        input {
+          width: 65px;
+          border: 1px solid #e7e5e5;
+        }
+      }
+    }
+  }

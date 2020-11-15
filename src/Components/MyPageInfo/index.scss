@@ -1,0 +1,46 @@
+.MyPageInfo {
+
+	h1 {
+		font-size: 2rem;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	&__box {
+		display: flex;
+		justify-content: space-around;
+
+		img {
+			width: 20rem;
+			height: 30rem;
+		}
+
+		&__img {
+			position: relative;
+
+			button {
+				position: absolute;
+				bottom: 5rem;
+				left: 0;
+				right: 0;
+				margin:0 auto;
+				width: 10rem;
+				height: 2rem;
+			}
+
+			&:last-child {
+				img { height: 30rem;}
+			}
+
+			p {
+				position: relative;
+				left: 0;
+				right: 0;
+				margin:0 auto;
+				bottom: 14rem;
+				text-align: center;
+				line-height: 1.5rem;
+			}
+		}
+	}
+}

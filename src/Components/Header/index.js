@@ -5,7 +5,35 @@ import List from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 import './index.scss';
 
-const Header = ({tableList}) => {
+const categories = [
+    {
+      name:"우리동네 취미",
+      images:[
+        {src:"images/test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
+        {src:"images/test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
+        {src:"images/test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
+      ]
+    },
+    {
+      name:"홈취미 & DIY 키트",
+      images:[
+        {src:"images/test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
+        {src:"images/test2.png", desc:"[뜨개질] 직접 만드는 목도리"},
+        {src:"images/test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"}
+      ]
+    },
+    {
+      name:"BEST",
+      images:[
+        {src:"images/test1.png", desc:"[가방 만들기] 비즈, 뜨개질, 코바늘 무료 드림"},
+        {src:"images/test.jpg", desc:"[손수건 만들기] kit 봉사 후원"},
+        {src:"images/test2.png", desc:"[뜨개질] 직접 만드는 목도리"}
+  
+      ]
+    },
+  ]
+
+const Header = () => {
   return (
     <>
         <div className="Header">
@@ -23,7 +51,7 @@ const Header = ({tableList}) => {
         
         </div>
         <List className="table">
-            {tableList.map((item, i)=> <List.Item key={i}>{item.name}</List.Item>)}
+            {categories.map((item, i)=> <List.Item key={i}>{item.name}</List.Item>)}
         </List>
     </>
   );
