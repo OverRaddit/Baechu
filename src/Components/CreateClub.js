@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 const CreateClub = ( {userObj} ) => {
     const [name,setName] = useState("");
     const [desc,setDesc] = useState("");
-    //const [location,setLocation] = useState("");
     const [attachment,setAttachment] = useState();
     
     const onChange = (event) => {
@@ -23,7 +22,7 @@ const CreateClub = ( {userObj} ) => {
     const onSubmit = async(event) => {
         event.preventDefault();
         // 사진을 storage에 저장한다.
-        const fileRef = storageService.ref().child(`${userObj.userId}/${uuidv4()}`);
+        const fileRef = storageService.ref().child(`ClubImage/${uuidv4()}`);
         const response = await fileRef.putString(attachment, "data_url");
         const attachmentUrl = await response.ref.getDownloadURL();
         // newClub document를 추가해준다.
