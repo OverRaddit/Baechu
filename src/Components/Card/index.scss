@@ -1,0 +1,36 @@
+.Card {
+	padding: 0 10rem;
+	margin-bottom: 5rem;
+	cursor: pointer;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 2.5rem;
+
+		span {
+			font-size: 1.2rem;
+
+			&:last-child {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		justify-content: space-around;
+
+		&__item {
+			&__img {
+				width: 250px;
+			}
+
+			&__desc {
+				padding-top: 2rem;
+				word-break: keep-all;
+				text-align: center;
+			}
+		}
+	}
+}

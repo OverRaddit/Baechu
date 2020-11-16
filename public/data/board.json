@@ -1,0 +1,18 @@
+[
+  {"id":0, "label":"아이템1", "src":"images/test2.png", "like": false},
+  {"id":1, "label":"아이템2", "src":"images/test1.png", "like": false},
+  {"id":2, "label":"아이템3", "src":"images/test.jpg", "like": false},
+  {"id":3, "label":"아이템4", "src":"images/test.jpg", "like": false},
+  {"id":4, "label":"아이템5", "src":"images/test2.png", "like": false},
+  {"id":5, "label":"아이템6", "src":"images/test1.png", "like": false},
+  {"id":6, "label":"아이템7", "src":"images/test2.png", "like": false},
+  {"id":7, "label":"아이템8", "src":"images/test1.png", "like": false},
+  {"id":8, "label":"아이템9", "src":"images/test.jpg", "like": false},
+  {"id":9, "label":"아이템10", "src":"images/test.jpg", "like": false},
+  {"id":10, "label":"아이템11", "src":"images/test2.png", "like": false},
+  {"id":11, "label":"아이템12", "src":"images/test1.png", "like": false},
+  {"id":12, "label":"아이템13", "src":"images/test2.png", "like": false},
+  {"id":13, "label":"아이템14", "src":"images/test.jpg", "like": false},
+  {"id":14, "label":"아이템15", "src":"images/test2.png", "like": false},
+  {"id":15, "label":"아이템16", "src":"images/test1.png", "like": false}
+]

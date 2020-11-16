@@ -1,0 +1,21 @@
+.GNB {
+	padding: 0;
+	margin: 0;
+	background: #3bbc56;
+
+	&__Inner {
+		z-index: 1000;
+
+		justify-content: space-evenly !important;
+
+		&::after {
+			display: none !important;
+		}
+
+		.item {
+			font-size: 0.8rem;
+			color: white !important;
+			cursor: pointer !important;
+		}
+	}
+}
