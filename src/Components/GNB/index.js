@@ -13,7 +13,8 @@ const GNB = ({isLoggedIn}) => {
             {isLoggedIn?
                     (<>
                         <Link className="item" to="/Mypage">MY PAGE</Link>
-                        <Link className="item" to="/createClub">createClub</Link>
+                        <Link className="item" to="/createClub">CREATE CLUB</Link>
+                        <Link className="item" to="/distance">거리 연습공간</Link>
                     </>):
                     <Link className="item" to="/Login">JoIn&Login</Link>
                 }

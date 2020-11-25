@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+.all {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.all::before{
+  content: "";
+  position: absolute; z-index: 1;
+  top: 0; right: 0; bottom: 0; left: 0;
+  }
+
+
+.images{
+  float: right;
+  margin-bottom: 10px;
+  }
+
+
+.input_text{position: relative; z-index: 2;}
+.input_text form h1{
+  font-size: 32px; color: #000;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.name-area input{
+  width: 95%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #999;
+}
+.name-area label{
+  position: relative;
+  left: 5px;
+  bottom: 27px;
+  font-size: 18px; color: #999;
+  transition: all .5s ease;
+}
+
+textarea {
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+  }
+
+.map{
+  float: right;
+  margin-right: 17px;}
+
+.name-area input:focus + label,
+.name-area input:valid + label {
+    color: transparent
+  }
+.btn-area{
+  margin-top: 30px;
+}
+
+.btn-area input {
+  width: 100%; height: 50px;
+  background: #3bbc56;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}

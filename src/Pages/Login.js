@@ -54,17 +54,20 @@ const Login =() =>{
             <span onClick={toggleAccount}>
                 <h1>{(newAccount) ? "JOIN" : "LOGIN"}</h1>
             </span>
-            <h2>{error}</h2> <br></br>
+            <h2>{error}</h2>
+            <div className="cabbage">
+                <img src="https://www.flaticon.com/svg/static/icons/svg/765/765618.svg"/>
+            </div>
             <form onSubmit = {onSubmit}>
                 <div className="int-area">
                     <input type="text" name="email" id="id"
-                    autocomplete="off" onChange={onChange} required/>
-                    <label for="id"> USER NAME</label>
+                    autoComplete="off" onChange={onChange} required/>
+                    <label htmlFor="id"> USER NAME</label>
                  </div>
                 <div className="int-area">
                     <input type="password" name="password" id="pw"
-                    autocomplete="off" onChange={onChange} required/>
-                    <label for="pw"> PASSWORD</label>
+                    autoComplete="off" onChange={onChange} required/>
+                    <label htmlFor="pw"> PASSWORD</label>
                 </div>
                 <div className="btn-area">
                     <button type="submit">{(newAccount) ? "Join" : "Login"}</button> <br/><br/>

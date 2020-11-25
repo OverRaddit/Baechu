@@ -1,5 +1,6 @@
 import { dbService } from "fbase";
 import React, { useEffect, useState } from "react"
+import "./index.scss";
 
 const { kakao } = window
 const Map = ({ searchPlace,userObj }) => {
@@ -50,6 +51,9 @@ const Map = ({ searchPlace,userObj }) => {
         // 장소 검색 객체를 생성
         const ps = new kakao.maps.services.Places(); 
 
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+
         // 키워드로 장소를 검색
         ps.keywordSearch(searchPlace, placesSearchCB);
 
@@ -70,7 +74,30 @@ const Map = ({ searchPlace,userObj }) => {
                 map.setBounds(bounds);
             } 
         }
+        /*
+        // 주소 가져오는 부분
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+                    detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+                    
+                    var content = '<div class="bAddr">' +
+                                    '<span class="title">법정동 주소정보</span>' + 
+                                    detailAddr + 
+                                '</div>';
         
+                    // 마커를 클릭한 위치에 표시합니다 
+                    marker.setPosition(mouseEvent.latLng);
+                    marker.setMap(map);
+        
+                    // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                }   
+            });
+        });
+        */
         // 지도에 마커를 표시하는 함수
         function displayMarker(place) {
             
@@ -82,7 +109,7 @@ const Map = ({ searchPlace,userObj }) => {
         
 
             // 클릭이벤트
-            kakao.maps.event.addListener(marker, 'click', function() {
+            kakao.maps.event.addListener(marker, 'click', function(mouseEvent) {
                 infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
                 infowindow.open(map, marker);
 
@@ -98,25 +125,34 @@ const Map = ({ searchPlace,userObj }) => {
             kakao.maps.event.addListener(marker, 'mouseout', function() {
                 infowindow.close();
             });
+
+        }
+        function searchDetailAddrFromCoords(coords, callback) {
+            // 좌표로 법정동 상세 주소 정보를 요청합니다
+            geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
         }
     }, [searchPlace])
     
   return (
       <>
-        <h1>위치정보 입력 Form</h1>
-         <form onSubmit={onSubmit}>
-             <input type="text" value={location} readOnly required/>
-             <input type="submit" value="현재 위치로 저장"/>
-         </form>
-        <div 
-         id="mymap"
-         style={{ 
-                width: '700px', 
-                height: '500px'
-         }}
-        />
-        <br></br>
-
+        <div className="InfoBox__input">
+            <div className="InfoBox__input__address"><input/> - <button>우편번호</button></div>
+                <input/><span>기본주소</span><br/>
+                <input/><span>나머지 주소</span>
+            
+            <form onSubmit={onSubmit}>
+                <input type="text" value={location} readOnly required/>
+                <input type="submit" value="현재 위치로 저장"/>
+            </form>
+            <div 
+            id="mymap"
+            style={{ 
+                    width: '700px', 
+                    height: '500px'
+            }}
+            />
+            <br></br>
+        </div>
      </>
   );
 }

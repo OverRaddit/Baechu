@@ -1,18 +1,15 @@
+import MapSearch from 'Components/InfoBox/MapSearch';
 import React from 'react';
 
 import "./index.scss";
 
-const InfoBox = ({title, desc, option}) => {
+const InfoBox = ({userObj, title, desc, option}) => {
   return(
     <div className="InfoBox">
       <div className={option === "address" ? "InfoBox__title__address" : "InfoBox__title"}>{title}</div>
       {option === 'phone' && <div className="InfoBox__input__call"><input/> - <input/> - <input/></div>}
       {option === "address" &&
-        <div className="InfoBox__input">
-          <div className="InfoBox__input__address"><input/> - <button>우편번호</button></div>
-          <input/><span>기본주소</span><br/>
-          <input/><span>나머지 주소</span>
-        </div>
+        <MapSearch userObj={userObj}/>
       }
       {option === "gender" &&
       <div className="InfoBox__input">
