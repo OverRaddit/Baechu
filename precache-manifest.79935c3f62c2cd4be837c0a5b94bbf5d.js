@@ -1,31 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6871f092815e1586e96c083000486276",
+    "revision": "dbfa646f15ae94aa482c61b79a76e4d1",
     "url": "/Baechu/index.html"
   },
   {
-    "revision": "7b43ae028a4deaec448e",
+    "revision": "561a2baec7782dd39381",
     "url": "/Baechu/static/css/2.ef00384d.chunk.css"
   },
   {
-    "revision": "1c7138237e1a0d7cce74",
-    "url": "/Baechu/static/css/main.d78d6f30.chunk.css"
+    "revision": "5d856a7295bcfc6037dd",
+    "url": "/Baechu/static/css/main.32aef03e.chunk.css"
   },
   {
-    "revision": "7b43ae028a4deaec448e",
-    "url": "/Baechu/static/js/2.784a3844.chunk.js"
+    "revision": "561a2baec7782dd39381",
+    "url": "/Baechu/static/js/2.d6a1b6ad.chunk.js"
   },
   {
-    "revision": "04356c248c5ec3880e4fc257251b4f93",
-    "url": "/Baechu/static/js/2.784a3844.chunk.js.LICENSE.txt"
+    "revision": "9e71bd700965d43a9cabe9043f9b3d09",
+    "url": "/Baechu/static/js/2.d6a1b6ad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1c7138237e1a0d7cce74",
-    "url": "/Baechu/static/js/main.493f402d.chunk.js"
+    "revision": "5d856a7295bcfc6037dd",
+    "url": "/Baechu/static/js/main.246f3d97.chunk.js"
   },
   {
     "revision": "223f6e03c220685e41bb",
     "url": "/Baechu/static/js/runtime-main.996bbb57.js"
+  },
+  {
+    "revision": "dd9575f5684d5c8e87a74d0845737867",
+    "url": "/Baechu/static/media/baechu.dd9575f5.png"
+  },
+  {
+    "revision": "39306019bf13036bf400b881001ecb70",
+    "url": "/Baechu/static/media/board.39306019.png"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
@@ -90,5 +98,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/Baechu/static/media/outline-icons.ef60a4f6.woff"
+  },
+  {
+    "revision": "3d459500827d638c94a84c268a095224",
+    "url": "/Baechu/static/media/profile.3d459500.png"
+  },
+  {
+    "revision": "8feff93941a2425f1d7b98118625a17d",
+    "url": "/Baechu/static/media/profile.8feff939.png"
   }
 ]);
