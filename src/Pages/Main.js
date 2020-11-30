@@ -14,7 +14,7 @@ const Main=() => {
         .collection("user")
         .where("userId","==",user.uid)
         .onSnapshot( async (snapshot) => {
-          const userInfo = snapshot.docs.map((doc) => ({
+          var userInfo = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
           }));
@@ -39,17 +39,24 @@ const Main=() => {
                 id: doc.id,
                 ...doc.data(),
               }));
+              setUserObj(userInfo[0]);
             });
-            setUserObj(userInfo[0]);
+            
+            setInit(true);
+            console.log("3");
           } else {
-            // 검색결과
+            // 검색결과 존재
             setUserObj(userInfo[0]);
+            setInit(true);
+            console.log("4");
           }
         });
       }else {
         setUserObj(null);
+        console.log("1");
       }
       setInit(true);
+      console.log("2");
     });
 
   }, []);
