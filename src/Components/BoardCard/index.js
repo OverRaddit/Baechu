@@ -8,7 +8,6 @@ import "./index.scss";
 const BoardCard = ({card, likeArr, handleLike, handleUnLike, index}) => {
   const [isLike, setIsLike] = React.useState(false);
 
-  // debounce란?? 무조건 발동되는게 아니라 한번 발동되면 쿨타임이 존재하는 함수다.
   const infiniteScroll = debounce(() => {
     const scrollHeight = Math.max(
       document.documentElement.scrollHeight,
@@ -38,8 +37,8 @@ const BoardCard = ({card, likeArr, handleLike, handleUnLike, index}) => {
         <Icon name='heart' size="big" color="green" onClick={()=> handleUnLike({id: card.id})}/> :
         <Icon name='heart outline' size="big" color="green" onClick={()=> handleLike({card})}/>
     }
-      <img src={card.attachmentUrl?card.attachmentUrl:"images/test1.png"} alt="이미지"/>
-      <div className="BoardCard__text">{card.text}</div>
+      <img src={card.src} alt="이미지"/>
+      <div className="BoardCard__text">{card.label}</div>
     </div>
   )
 }

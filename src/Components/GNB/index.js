@@ -1,5 +1,18 @@
 import React from 'react';
+import {withRouter} from "react-router-dom";
 import List from 'semantic-ui-react/dist/commonjs/collections/Menu';
+<<<<<<< HEAD
+
+import './index.scss';
+
+const menuList = [
+  {label:"JOIN US", link:"/"},
+  {label:"LOGIN", link:"/"},
+  {label:"MY PAGE", link:"/mypage"},
+  {label:"BOARD", link:"/board"},
+  {label:"Q&A", link:"/"},
+];
+=======
 import {Link} from 'react-router-dom'
 import './index.scss';
 import { authService } from '../../fbase';
@@ -13,8 +26,7 @@ const GNB = ({isLoggedIn}) => {
             {isLoggedIn?
                     (<>
                         <Link className="item" to="/Mypage">MY PAGE</Link>
-                        <Link className="item" to="/createClub">CREATE CLUB</Link>
-                        <Link className="item" to="/distance">거리 연습공간</Link>
+                        <Link className="item" to="/createClub">createClub</Link>
                     </>):
                     <Link className="item" to="/Login">JoIn&Login</Link>
                 }
@@ -26,6 +38,18 @@ const GNB = ({isLoggedIn}) => {
         </div>
     )
 }
+>>>>>>> 91f7ecdafccb937c30100e6863d7e81ac7ad589a
 
-export default GNB;
+const GNB = ({history}) => (
+    <div className="GNB" >
+        <List className="GNB__Inner" tabular>
+            {menuList.map((item, i) => <List.Item key={i} onClick={() => history.push(`${item.link}`)}>{item.label}</List.Item>)}
+        </List>
+    </div>
 
+<<<<<<< HEAD
+)
+
+export default withRouter(GNB);
+=======
+>>>>>>> 91f7ecdafccb937c30100e6863d7e81ac7ad589a

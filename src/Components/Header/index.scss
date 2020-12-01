@@ -11,9 +11,10 @@
 			align-items: center;
 
 			span {
-			font-size: 1.8rem;
-			cursor: pointer;
+				font-size: 1.8rem;
+				cursor: pointer;
 			}
+
 			img {
 				width: 2rem;
 				margin-left: .5rem;
@@ -45,5 +46,9 @@
 		&:hover {
 			background: #dbffe2 !important;
 		}
+	}
+
+	.item:first-child {
+		border-left: 1px solid #eee;
 	}
 }

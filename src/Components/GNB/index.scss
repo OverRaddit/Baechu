@@ -1,10 +1,18 @@
 .GNB {
 	padding: 0;
 	margin: 0;
+<<<<<<< HEAD
+	background: #3bbc56;
+
+	&__Inner {
+		z-index: 1000;
+
+=======
 	background: #5ce68e;
 
 	&__Inner {
 		z-index: 1000;
+>>>>>>> 91f7ecdafccb937c30100e6863d7e81ac7ad589a
 		justify-content: space-evenly !important;
 
 		&::after {
@@ -12,7 +20,7 @@
 		}
 
 		.item {
-			font-size: 1.2rem;
+			font-size: 0.8rem;
 			color: white !important;
 			cursor: pointer !important;
 		}

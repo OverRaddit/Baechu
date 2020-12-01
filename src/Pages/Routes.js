@@ -5,18 +5,18 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// improt 페이지 목록
+// 현재는 디자인 틀만 잡아놔서 메인 페이지만 존재
+// 추후 작업을 통해 로그인 및 다른 페이지 생성 예정
+
 import Home from './Home';
 import Login from './Login';
+import MapSearch from '../Components/MapSearch';
+import CreateClub from '../Components/CreateClub';
 import ViewClub from 'Components/ViewClub';
+import MyPageInfo from 'Components/MyPageInfo';
 import Mypage from './MyPage';
 import UserInfo from './UserInfo';
-import GNB from 'Components/GNB';
-import Header from 'Components/Header';
-import Distance from 'Components/Distance';
-import Board from './Board';
-import Sidebar from 'Components/Sidebar/Sidebar';
-import CreateClub from 'Components/CreateClub';
-import CreateBoard from 'Components/TweetBox/createBoard';
 
 const Routes = ({isLoggedIn, userObj}) => {
   return (
@@ -25,52 +25,16 @@ const Routes = ({isLoggedIn, userObj}) => {
       {isLoggedIn ? (
         <>
         <Route exact path="/">
-          <Home userObj={userObj}/>
+          <Home/>
         </Route>
-
-        <Route exact path="/Mypage">
-          <Mypage userObj={userObj}/>
-        </Route>
-
-        <Route exact path="/userInfo">
-          <UserInfo userObj={userObj}/>
-        </Route>
-
-        {
-          //2개 이상의 컴포넌트를 넣으면 렉이 걸린다....왜지???
-          //GNB,Header,메인컴포넌트 이렇게 넣으면 메인은 작동함
-          // 근데 GNB,header의 링크가 작동하지 않음! 왜그럴까...?
-        }
-        <Route exact path="/sidebar">
-          <GNB isLoggedIn={userObj} />
-          <Header />
-          <Sidebar/>
-        </Route>
+        <Route exact path="/Mypage" component={Mypage} />
+        <Route exact path="/Mypage/info" component={UserInfo} />
         
         <Route exact path="/createClub">
           <CreateClub userObj={userObj}/>
         </Route> 
-
-        <Route exact path="/viewClub/:clubName" component={ViewClub} >
-    
-        </Route>
-
-        <Route exact path="/distance">
-          <Distance />
-        </Route>
-
-        <Route exact path="/Board">
-          <GNB isLoggedIn={userObj} />
-          <Header />
-          <Board userObj={userObj}/>
-        </Route>
-
-        <Route exact path="/createBoard">
-          <GNB isLoggedIn={userObj} />
-          <Header />
-          <CreateBoard />
-        </Route>
-
+        <Route exact path="/viewClub/:clubName" component={ViewClub} />
+        <Route exact path="/Board"/>
         <Route exact path="/Q&A"/>
         </>
       ) : (

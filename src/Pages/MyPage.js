@@ -6,12 +6,12 @@ import Header from "../Components/Header";
 import Card from "../Components/Card";
 import MyPageInfo from "../Components/MyPageInfo"
 
-const Mypage = ({ userObj }) => {
+const Mypage = () => {
   return (
     <>
-      <GNB isLoggedIn={userObj} />
+      <GNB />
       <Header />
-      <MyPageInfo userObj={userObj}/>
+      <MyPageInfo />
     </>
   )
 }
