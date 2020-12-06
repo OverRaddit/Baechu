@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Baechu/static/css/main.8fe3536d.chunk.css",
-    "main.js": "/Baechu/static/js/main.840a6989.chunk.js",
-    "main.js.map": "/Baechu/static/js/main.840a6989.chunk.js.map",
+    "main.css": "/Baechu/static/css/main.75a8b903.chunk.css",
+    "main.js": "/Baechu/static/js/main.d72d1d3b.chunk.js",
+    "main.js.map": "/Baechu/static/js/main.d72d1d3b.chunk.js.map",
     "runtime-main.js": "/Baechu/static/js/runtime-main.996bbb57.js",
     "runtime-main.js.map": "/Baechu/static/js/runtime-main.996bbb57.js.map",
     "static/css/2.ef00384d.chunk.css": "/Baechu/static/css/2.ef00384d.chunk.css",
-    "static/js/2.369ded6d.chunk.js": "/Baechu/static/js/2.369ded6d.chunk.js",
-    "static/js/2.369ded6d.chunk.js.map": "/Baechu/static/js/2.369ded6d.chunk.js.map",
+    "static/js/2.2b0e521f.chunk.js": "/Baechu/static/js/2.2b0e521f.chunk.js",
+    "static/js/2.2b0e521f.chunk.js.map": "/Baechu/static/js/2.2b0e521f.chunk.js.map",
     "index.html": "/Baechu/index.html",
-    "precache-manifest.04d54593c4adbc5c17699d2c95fc2ff2.js": "/Baechu/precache-manifest.04d54593c4adbc5c17699d2c95fc2ff2.js",
+    "precache-manifest.ac7ae1c03277e96319fc425fd568f107.js": "/Baechu/precache-manifest.ac7ae1c03277e96319fc425fd568f107.js",
     "service-worker.js": "/Baechu/service-worker.js",
     "static/css/2.ef00384d.chunk.css.map": "/Baechu/static/css/2.ef00384d.chunk.css.map",
-    "static/css/main.8fe3536d.chunk.css.map": "/Baechu/static/css/main.8fe3536d.chunk.css.map",
-    "static/js/2.369ded6d.chunk.js.LICENSE.txt": "/Baechu/static/js/2.369ded6d.chunk.js.LICENSE.txt",
+    "static/css/main.75a8b903.chunk.css.map": "/Baechu/static/css/main.75a8b903.chunk.css.map",
+    "static/js/2.2b0e521f.chunk.js.LICENSE.txt": "/Baechu/static/js/2.2b0e521f.chunk.js.LICENSE.txt",
     "static/media/baechu.png": "/Baechu/static/media/baechu.dd9575f5.png",
     "static/media/board.png": "/Baechu/static/media/board.39306019.png",
     "static/media/semantic.min.css": "/Baechu/static/media/outline-icons.ef60a4f6.woff",
@@ -22,8 +22,8 @@
   "entrypoints": [
     "static/js/runtime-main.996bbb57.js",
     "static/css/2.ef00384d.chunk.css",
-    "static/js/2.369ded6d.chunk.js",
-    "static/css/main.8fe3536d.chunk.css",
-    "static/js/main.840a6989.chunk.js"
+    "static/js/2.2b0e521f.chunk.js",
+    "static/css/main.75a8b903.chunk.css",
+    "static/js/main.d72d1d3b.chunk.js"
   ]
 }
