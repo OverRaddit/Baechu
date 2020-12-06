@@ -92,8 +92,9 @@ const Home = ({ userObj }) => {
       <Sticky>
         <GNB isLoggedIn={isLoggedIn} />
       </Sticky>
-      <Header tableList={categories}/>
-      <Card2 item={clubs} key="1" />
+      <Header categories={categories}/>
+      
+      <Card2 item={clubs} />
       {categories.map((card,i) => <Card key={i} item={card} />)}
       
     </div>

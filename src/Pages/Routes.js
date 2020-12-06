@@ -36,11 +36,6 @@ const Routes = ({isLoggedIn, userObj}) => {
           <UserInfo userObj={userObj}/>
         </Route>
 
-        {
-          //2개 이상의 컴포넌트를 넣으면 렉이 걸린다....왜지???
-          //GNB,Header,메인컴포넌트 이렇게 넣으면 메인은 작동함
-          // 근데 GNB,header의 링크가 작동하지 않음! 왜그럴까...?
-        }
         <Route exact path="/sidebar">
           <GNB isLoggedIn={userObj} />
           <Header />
@@ -60,14 +55,10 @@ const Routes = ({isLoggedIn, userObj}) => {
         </Route>
 
         <Route exact path="/Board">
-          <GNB isLoggedIn={userObj} />
-          <Header />
           <Board userObj={userObj}/>
         </Route>
 
         <Route exact path="/createBoard">
-          <GNB isLoggedIn={userObj} />
-          <Header />
           <CreateBoard />
         </Route>
 

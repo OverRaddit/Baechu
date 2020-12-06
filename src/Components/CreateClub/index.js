@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './group_style.scss';
 import GNB from "Components/GNB";
 import Header from "Components/Header";
+import Layout from "Components/Layout";
 
 const CreateClub = ( {userObj} ) => {
     const [name,setName] = useState("");
@@ -61,9 +62,8 @@ const CreateClub = ( {userObj} ) => {
     }
 
     return (
+    <Layout>
     <div>
-        <GNB isLoggedIn={userObj} />
-        <Header />
         <br></br>
         <div className="all">
             <section className="input_text"> 
@@ -112,6 +112,7 @@ const CreateClub = ( {userObj} ) => {
             </section>
         </div>
     </div>
+    </Layout>
     );
 }
 

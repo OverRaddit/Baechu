@@ -5,10 +5,9 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 
 import "./index.scss";
 
-const BoardCard = ({card, likeArr, handleLike, handleUnLike, index}) => {
+const BoardCard = ({card, likeArr, likeList, handleLike, handleUnLike, index}) => {
   const [isLike, setIsLike] = React.useState(false);
 
-  // debounce란?? 무조건 발동되는게 아니라 한번 발동되면 쿨타임이 존재하는 함수다.
   const infiniteScroll = debounce(() => {
     const scrollHeight = Math.max(
       document.documentElement.scrollHeight,
@@ -43,5 +42,5 @@ const BoardCard = ({card, likeArr, handleLike, handleUnLike, index}) => {
     </div>
   )
 }
-
+// likeList.includes(card)
 export default BoardCard;

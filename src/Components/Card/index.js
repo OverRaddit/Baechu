@@ -14,7 +14,7 @@ const Card = ({item}) => {
                 <span>전체보기 <Icon name="angle right" /></span>
             </div>
             <div className="Card__content">
-                {images.map((list,i) => 
+                {images.map((list,i) =>
                     <div className="Card_content__item" key={i}>
                         <img className="Card__content__item__img" key={i} src={list.src} alt="testtest"/>
                         <div className="Card__content__item__desc">{list.desc}</div>

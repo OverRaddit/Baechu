@@ -1,37 +1,18 @@
-import React, { useEffect, useState } from "react";
-//import Layout from "Components/Layout";
+import React, { useState } from "react";
+import Layout from 'Components/Layout';
 import BoardCard from "Components/BoardCard";
 
 import "../Style/board.scss"
 import { dbService } from "fbase";
-const { kakao } = window;
 
 const Board = ({userObj}) => {
   const [cardArr, setCardArr] = React.useState([]);
-  const [likeIdArr, setLikeIdArr] = React.useState([]);
   const [likeArr, setLikeArr] = React.useState([]);
   const [standard, setStandard] = React.useState('');
+  const [likeList, setLikeList] = useState([]);
 
-  /*
-  React.useEffect(() => {
-    fetch('data/board.json').then(res => res.json()).then(res => setCardArr(res));
-  },[]);
-  */
-  
-
-  useEffect( ()=>{
-    dbService.collection("board")
-    .orderBy("createdAt","desc")
-    .onSnapshot((snapshot)=>{
-      const boardArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setCardArr(boardArray);
-    });
-  },[]);
-
-    //likeArr를 초기화
+  const getLikeList = () =>{
+    // user가 좋아요표시한 게시글을 가져와 likeArr에 넣는다.
     dbService.collection("like")
     .where("userId","==",userObj.userId)
     .onSnapshot((snapshot=>{
@@ -40,50 +21,76 @@ const Board = ({userObj}) => {
         like: true,
         ...doc.data(),
       }));
-      setLikeIdArr(likeArray);
-    }))
+      // 이걸 바꿔야할듯
+      var likeList = new Array();
+      likeArray.map((like)=>{
+        likeList.push(like.boardId);
+      });
+      setLikeList(likeList);
 
+      dbService.collection("board")
+      .orderBy("createdAt","desc")
+      .onSnapshot((snapshot)=>{
+      const boardArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log(likeList);
+      boardArray.map((board)=>{
+        // 사용자의 좋아요글 리스트에 해당 글이 포함되지 않는다면 추가하라.
+        if(likeList.includes(board.id)){
+          setLikeArr(prev => prev.concat(board));
+        }
+      });
+        setCardArr(boardArray);
+        console.log(likeArr);
+      });
+    }));
+  }
+
+  React.useEffect(() => {
+    getLikeList();
+    
+  },[]);
 
   const handleLike = async({card}) => {
-      if(!likeArr.includes(card)) {
-        //??? 왜 temp를 굳이 선언했을까??
-        
+      if(!likeList.includes(card)) {
         const temp = card;
         temp.like = true;
-        setLikeArr(prev => prev.concat(temp));
-        
-        //card.like = true;
-        //setLikeArr(prev => prev.concat(card));
-        
-        // 하트 누르면 업데이트 잘됨(좋아요 명단에 추가하는걸로 수정해야하지만) 근데 좋아요 눌러도 하트가 안채워짐, 이상하게 2번째 눌러야 하트가 채워진다
-        // 근데 2번 눌렀기때문에 좋아요된 게시글을 보면 똑같은 글이 2번 표시된다. 으아아아
-        /*
-        var newArr = card.like.push(userObj.userId);
-        await dbService.doc(`board/${card.id}`).update({
-          text: "좋아요",
-          like: prev => prev.concat(4),
-        })
-        */
+        setLikeList(prev => prev.concat(temp));
+
+        // 좋아요 document를 생성한다.
         const likeData = {userId: userObj.userId, boardId: card.id}
-        dbService.collection("like").add(likeData);
+        dbService.collection("like").add(likeData); 
       }
   }
 
-  const handleUnLike = ({id}) => {
-    // 현재 카드의 id를 가지고 있는 녀석을 LikeArr에서 제거한다.
+  const handleUnLike = async({id}) => {
     setLikeArr(prev => prev.filter(item => item.id !== id));
+    /*
+    const likeData = await dbService
+            .collection("like")
+            .where("boardID","==",id)
+            .where("userID","==",userObj.userId)
+            .orderBy("createdAt")
+            .get();
+    likeData.docs.map((doc) => doc.data())
+    await dbService.doc(`like/${nweetObj.id}`).delete();
+    */
   }
 
   const handleChange = e => {
     setStandard(e.target.value);
   }
 
-  return (
 
+
+  return (
+      <Layout>
       <div className="Board">
-        <h1>LEISURE COMMUNITY</h1>
+        <h1>우리동네취미</h1>
         <p>
-          사람을 통해 배우는 취미 연구소
+          집 주변에서 소규모로 즐기는 취미활동
         </p>
         <div className="Board__inner">
           <select value={standard} onChange={handleChange}>
@@ -98,6 +105,7 @@ const Board = ({userObj}) => {
                 key={i}
                 card={item}
                 likeArr={likeArr}
+                likeList={likeList}
                 handleLike={handleLike}
                 handleUnLike={handleUnLike}
                 />)
@@ -113,7 +121,7 @@ const Board = ({userObj}) => {
           </div>
         </div>
       </div>
-      
+      </Layout>
   );
 }
 

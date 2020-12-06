@@ -3,12 +3,10 @@ import './posting_style.scss';
 const Tweet = ({ tweetObj }) => {
 
     return(
-        <div className="all">
-        <form>
+        <div className="tweetbody">
+        <form >
             <section className="input_text">
-                {
-                    //uid로 auth user에 접근할 방법이 없음,,, 작성자 프사는 userdocument를 참조해야함,,,
-                }
+                
                 <div className="cabbage">
                     <img src="https://www.flaticon.com/svg/static/icons/svg/765/765618.svg"/>
                 </div>

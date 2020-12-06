@@ -5,13 +5,14 @@ import GNB from "../Components/GNB";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
 import MyPageInfo from "../Components/MyPageInfo"
+import Layout from 'Components/Layout';
 
 const Mypage = ({ userObj }) => {
   return (
     <>
-      <GNB isLoggedIn={userObj} />
-      <Header />
-      <MyPageInfo userObj={userObj}/>
+      <Layout>
+        <MyPageInfo userObj={userObj}/>
+      </Layout>
     </>
   )
 }

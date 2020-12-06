@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './posting_style.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Layout from 'Components/Layout';
 
 const CreateBoard= () => {
     const userObj = authService.currentUser;
@@ -40,12 +41,14 @@ const CreateBoard= () => {
         setBoard("");
         setAttachment("");
     }
+
     const onChange = (event) => {
         const {
             target : {value}
         } = event;
         setBoard(value);
     }
+    
     const onFileChange = (event) => {
         const {
             target: {files},
@@ -61,18 +64,17 @@ const CreateBoard= () => {
         reader.readAsDataURL(File);
     }
     const onClearAttachment = () => setAttachment("");
-
+    
     return(
-        <div className="all">
+        <Layout>
+        <div className="whole">
         <form onSubmit={onSubmit}>
             <section className="input_text">
                 <h1>게시물 작성</h1>
                 <div className="cabbage">
                     <img src="https://www.flaticon.com/svg/static/icons/svg/765/765618.svg"/>
                 </div>
-                {
-                    //프사를 클릭하면 user정보를 보는 폼으로 넘어가게!
-                }
+                
                 <div className="profile">
                     { userPhotoURL ? (
                         <img src={userPhotoURL} alt="userphotoURL" width="100px" height="100px"/>
@@ -88,7 +90,7 @@ const CreateBoard= () => {
                 <div className="user_name">
                     <h3>{userName}</h3>
                 </div>
-
+                
                 <div>
                     <textarea 
                         placeholder="당신의 멋진 취미는 무엇인가요?"
@@ -131,7 +133,79 @@ const CreateBoard= () => {
             </section>
         </form>
         </div>
+        </Layout>
     );
 }
+
+/*
+<Layout>
+        <div className="all">
+        <form onSubmit={onSubmit} className="all">
+            <section className="input_text">
+                <h1>게시물 작성</h1>
+                <div className="cabbage">
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/765/765618.svg"/>
+                </div>
+                
+                <div className="profile">
+                    { userPhotoURL ? (
+                        <img src={userPhotoURL} alt="userphotoURL" width="100px" height="100px"/>
+                    ) : (
+                        <a href="#">
+                        <i className="fas fa-user-circle profile fa-3x"/>
+                    </a>
+                    )}
+                    
+                    
+                </div>
+
+                <div className="user_name">
+                    <h3>{userName}</h3>
+                </div>
+                
+                <div>
+                    <textarea 
+                        placeholder="당신의 멋진 취미는 무엇인가요?"
+                        value={board}
+                        onChange={onChange}
+                        type="text"
+                    />
+                    
+                </div>
+                
+                <label htmlFor="attach-file" className="factoryInput__label">
+                    <span>Add Photo</span>
+                    <i className="fas fa-images images fa-lg"></i>
+                </label>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={onFileChange}
+                />
+
+                {attachment && (
+                    <div className="factoryForm__attachment">
+                        <img
+                        src={attachment}
+                        style={{
+                            backgroundImage: attachment,
+                        }}
+                        width = "200px" height = "150px"
+                        />
+                        <div className="factoryForm__clear" onClick={onClearAttachment}>
+                            <span>Remove</span>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </div>
+                    </div>
+                )}
+
+                <div className="btn-area">
+                    <input type="submit" value="게시"/>
+                </div>
+            </section>
+        </form>
+        </div>
+        </Layout>
+*/
 
 export default CreateBoard;

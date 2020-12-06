@@ -63,7 +63,7 @@ const TweetFactory= ({clubObj}) => {
     const onClearAttachment = () => setAttachment("");
 
     return(
-        <div className="all">
+        <div className="tweetbody">
         <form onSubmit={onSubmit}>
             <section className="input_text">
                 <h1>게시물 작성</h1>
