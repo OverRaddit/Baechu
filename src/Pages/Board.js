@@ -83,7 +83,7 @@ const Board = ({userObj}) => {
     setStandard(e.target.value);
   }
 
-
+  
 
   return (
       <Layout>
@@ -98,6 +98,7 @@ const Board = ({userObj}) => {
             <option value="최근순">최근순</option>
             <option value="좋아요">좋아요</option>
           </select>
+          <br></br>
           <div className="Board__inner__Cards">
             {standard === '좋아요' ?
             likeArr.map((item,i) =>

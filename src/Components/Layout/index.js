@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import GNB from "../GNB";
 import Header from "../Header";
 import Card from "../Card";
-import { dbService } from 'fbase';
+import { authService, dbService } from 'fbase';
 
 // 백엔드 존재시 통신해서 가져올 데이터 (dummy data)
 const categories = [
@@ -77,7 +77,7 @@ const Layout = ({children}) => {
   return (
     <>
     <div className="Home" ref={handleContextRef}>
-      <GNB/>
+      <GNB isLoggedIn={authService.currentUser}/>
       <Header categories={categories} contextRef={contextRef}/>
       {children}
     </div>

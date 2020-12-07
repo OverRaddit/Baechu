@@ -39,6 +39,9 @@ const GNB = ({isLoggedIn}) => {
             {
                 menuList.map((item, i) => <List.Item key={i} onClick={() => history.push(`${item.link}`)}>{item.label}</List.Item>)
             }
+            {
+                isLoggedIn && <List.Item onClick={onLogOutClick}>LOGOUT</List.Item>
+            }
         </List>
        </div>
         /*
